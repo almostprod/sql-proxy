@@ -1,5 +1,6 @@
 COMMIT := $(shell git rev-parse --short=7 HEAD 2>/dev/null)
-VERSION := $(shell git describe --abbrev=0 HEAD 2>/dev/null)
+# VERSION := $(shell git describe --abbrev=0 HEAD 2>/dev/null)
+VERSION := 0.8
 DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 ifeq ($(strip $(shell git status --porcelain 2>/dev/null)),)
@@ -8,7 +9,7 @@ else
   GIT_TREE_STATE=dirty
 endif
 
-REPO=planetscale
+REPO=ghcr.io/almostprod
 NAME=pscale-proxy
 BUILD_PKG=github.com/planetscale/sql-proxy/cmd/sql-proxy-client
 
